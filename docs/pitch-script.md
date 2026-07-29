@@ -52,30 +52,26 @@ Happy to take questions.
 
 | Tag | Feature | Use |
 |-----|---------|-----|
-| Feed | Infinite-scroll feed | Browse latest findings sorted by date |
-| Detail | Full summary page | Read TL;DR, takeaways, glossary, original link |
+| Browse | Infinite-scroll feed | Latest findings sorted by date |
+| Read | Full summary page | TL;DR, takeaways, glossary, original link |
 | Filter | Filter by source | Check/uncheck blogs, state in URL |
-| Bookmarks | Save for later | Persisted in localStorage, no account needed |
+| Refresh | Auto-refresh poll | Banner when new content available |
+| Bookmark | Save for later | Persisted in localStorage, no account needed |
 | Search | Keyword search | Full-text across titles, summaries, sources |
-| Auto-Refresh | Background poll | Banner when new content available |
-| Responsive | Mobile + desktop | Works on any screen size |
 
 ### Nice-to-Have (Still Anonymous)
 
 | Tag | Feature | Use |
 |-----|---------|-----|
-| Categories | Auto-tag findings | Heuristic: breakthrough, debugging, architecture, etc. |
-| Upvotes | Community signal | Vote on findings, sort by most-upvoted |
-| Spotlight | Breakthroughs hero | Top-scoring breakthrough items on homepage |
-| Dark Mode | Theme toggle | localStorage preference, all components themed |
-| Permalinks | Shareable URLs | Direct link to any finding |
+| Categorise | Auto-tag findings | Heuristic: breakthrough, debugging, architecture, etc. |
+| Upvote | Community voting | Vote on findings, sort by most-upvoted |
+| Spotlight | Breakthroughs hero | Top-scoring items on homepage |
+| Darkmode | Theme toggle | localStorage preference, all components themed |
 
 ### Post-MVP (Requires Auth)
 
 | Tag | Feature | Use |
 |-----|---------|-----|
-| Accounts | Email/OAuth login | Cross-device sync for bookmarks and prefs |
-| For You | Personalised feed | Re-ranked by topic affinity and source preference |
 | Digest | Email summary | Top findings delivered to inbox daily/weekly |
-| Integrations | Slack/Discord | Push findings to team channels via webhooks |
-| Watchlists | Keyword alerts | Notify when new content matches saved keywords
+| Sync | Cross-device sync | Bookmarks and preferences across devices |
+| Follow | Follow sources | Personalised feed based on followed interests |
