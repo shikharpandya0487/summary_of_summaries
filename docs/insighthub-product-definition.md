@@ -45,33 +45,33 @@ InsightHub is a web app for busy developers who want to stay on top of the best 
 > - Feed paginates or infinite-scrolls (20 items per page)
 > - At least 3 source blogs are being polled (e.g. ByteByteGo, Anthropic, Meta Engineering)
 
-**2. As a visitor, I want to click a finding to see the full summary and details, so that I can understand it deeply.**
+**2. [Read] As a visitor, I want to click a finding to see the full summary and details, so that I can understand it deeply.**
 > **Done when:**
 > - Detail page shows title, source, date, full summary (3-5 paragraphs), and a list of key takeaways
 > - A "Read Original" link opens the source article in a new tab
 > - The page is responsive (works on mobile browser)
 
-**3. As a visitor, I want to filter the feed by source blog, so that I can focus on content from specific authors.**
+**3. [Filter] As a visitor, I want to filter the feed by source blog, so that I can focus on content from specific authors.**
 > **Done when:**
 > - Filter bar with checkboxes for each active source blog
 > - Selecting a source filters the feed to only show items from that source
 > - "Show All" option to reset filters
 > - Filter state is reflected in the URL (shareable filtered view)
 
-**4. As a visitor, I want the feed to auto-refresh so that I see newly published findings without reloading manually.**
+**4. [Refresh] As a visitor, I want the feed to auto-refresh so that I see newly published findings without reloading manually.**
 > **Done when:**
 > - A "New items available" banner appears when new content is fetched
 > - Clicking the banner or a refresh button loads new items
 > - Feed polls for updates every 5 minutes via background fetch
 
-**5. As a visitor, I want to bookmark findings so that I can save interesting ones to read later.**
+**5. [Bookmark] As a visitor, I want to bookmark findings so that I can save interesting ones to read later.**
 > **Done when:**
 > - Each feed item has a bookmark icon
 > - Clicking toggles bookmark state (visual feedback: filled/outline icon)
 > - Bookmarks persist across page reloads (stored in localStorage — no account needed)
 > - A "Bookmarks" tab shows all saved items
 
-**6. As a visitor, I want to search findings by keyword, so that I can find content about specific topics.**
+**6. [Search] As a visitor, I want to search findings by keyword, so that I can find content about specific topics.**
 > **Done when:**
 > - Search bar at the top of the feed
 > - Searches across title, summary, and source name
@@ -80,26 +80,26 @@ InsightHub is a web app for busy developers who want to stay on top of the best 
 
 ### Nice-to-Have (Still Anonymous — No Login)
 
-**7. As a visitor, I want findings auto-categorised (e.g. breakthrough, debugging, architecture), so that I can filter by category.**
+**7. [Categorise] As a visitor, I want findings auto-categorised (e.g. breakthrough, debugging, architecture), so that I can filter by category.**
 > **Done when:**
 > - Each item shows a category badge (e.g. 🔥 Breakthrough, 🐛 Debugging, 🏗️ Architecture)
 > - Feed can be filtered by category
 > - Categories are assigned by keyword-based heuristics
 
-**8. As a visitor, I want to upvote findings so that the community can surface the best content.**
+**8. [Upvote] As a visitor, I want to upvote findings so that the community can surface the best content.**
 > **Done when:**
 > - Upvote button on each item and detail page
 > - Vote count displayed next to the button
 > - Users can upvote only once per item (localStorage tracking)
 > - Feed can be sorted by "Most Upvoted"
 
-**9. As a visitor, I want to see a "Breakthroughs" spotlight section so that I don't miss major announcements.**
+**9. [Spotlight] As a visitor, I want to see a "Breakthroughs" spotlight section so that I don't miss major announcements.**
 > **Done when:**
 > - A curated section on the homepage showing items tagged as "breakthrough"
 > - Shows top 3 breakthrough items from the last 7 days
 > - Badge or visual distinction from regular feed items
 
-**10. As a visitor, I want dark mode so that late-night browsing is easier on my eyes.**
+**10. [Darkmode] As a visitor, I want dark mode so that late-night browsing is easier on my eyes.**
 > **Done when:**
 > - Toggle in the header switches between light and dark themes
 > - Preference stored in localStorage
@@ -107,21 +107,21 @@ InsightHub is a web app for busy developers who want to stay on top of the best 
 
 ### Nice-to-Have (Requires Authentication — Post-MVP)
 
-**11. As a returning user, I want to subscribe to a daily email digest so that I get the top findings delivered to my inbox.**
+**11. [Digest] As a returning user, I want to subscribe to a daily email digest so that I get the top findings delivered to my inbox.**
 > **Done when:**
 > - Email subscription form (email + frequency preference)
 > - Daily cron job sends top 5 items from the last 24 hours
 > - Unsubscribe link in email
 > - Basic email template with title, summary, and links
 
-**12. As a user, I want my bookmarks and preferences to sync across devices, so that I can pick up where I left off.**
+**12. [Sync] As a user, I want my bookmarks and preferences to sync across devices, so that I can pick up where I left off.**
 > **Done when:**
 > - User account with email/password or OAuth
 > - Bookmarks stored server-side
 > - Preferences (filters, dark mode) sync to account
 > - Log in on any device → same experience
 
-**13. As a user, I want to follow specific sources and topics so that my feed reflects my interests.**
+**13. [Follow] As a user, I want to follow specific sources and topics so that my feed reflects my interests.**
 > **Done when:**
 > - Follow/unfollow sources and categories
 > - Feed re-ranked based on followed interests
