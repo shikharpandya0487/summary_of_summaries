@@ -1,10 +1,12 @@
 # InsightHub — Product Definition
 
+> **1.5-day build for 2 developers. MVP: RSS-only ingestion, localStorage persistence, heuristic categorisation. Anon-first — no login required, inspired by roadmap.sh and ILovePdf.**
+
 ---
 
 ## 1. Vision
 
-InsightHub is a web app for busy developers who want to stay on top of the best engineering content without spending hours browsing blogs, newsletters, and social media. It ingests articles from top engineering blogs (ByteByteGo, Anthropic, Meta Engineering, and more), automatically extracts the key findings, and presents them as a clean, browsable feed of concise summaries — so a developer can get the signal from ten posts in five minutes. **No login required** — like [roadmap.io](https://roadmap.sh) or [ILovePdf](https://www.ilovepdf.com/), the core experience is fully available to anonymous visitors the instant they land. *This is a success if a user can open the app during a coffee break and walk away knowing the three most important things that happened in the engineering world that day.*
+InsightHub is a web app for busy developers who want to stay on top of the best engineering content without spending hours browsing blogs, newsletters, and social media. It ingests articles from top engineering blogs (ByteByteGo, Anthropic, Meta Engineering, and more), automatically extracts the key findings, and presents them as a clean, browsable feed of concise summaries — so a developer can get the signal from ten posts in five minutes. **No login required** — like [roadmap.sh](https://roadmap.sh) or [ILovePdf](https://www.ilovepdf.com/), the core experience is fully available to anonymous visitors the instant they land. *This is a success if a user can open the app during a coffee break and walk away knowing the three most important things that happened in the engineering world that day.*
 
 ---
 
@@ -243,7 +245,85 @@ InsightHub is a web app for busy developers who want to stay on top of the best 
 
 ---
 
-## 6. Data & Rules
+## 6. Scoring & Curation
+
+### Scoring Formula
+
+```
+FinalScore = (Recency x 0.25) + (SourceAuthority x 0.20) +
+             (ContentQuality x 0.25) + (CommunitySignal x 0.20) +
+             (UserFeedback x 0.10)
+```
+
+### Scoring Factors
+
+| Factor | Weight | Components |
+|--------|--------|------------|
+| Recency | 25% | Exponential decay, 48h half-life |
+| Source Authority | 20% | Tier 1: Anthropic/Meta/ByteByteGo, Tier 2: IBM/Oracle |
+| Content Quality | 25% | Length x tech density x code blocks x narrative structure |
+| Community Signal | 20% | Upvotes, saves, dwell time across anonymous visitors |
+| User Feedback | 10% | Votes, show-more/less clicks (localStorage), anonymous |
+
+### Acceptance Rules
+
+- **score >= 60** — mandatory minimum for feed inclusion
+- **source_authority >= Tier 3**
+- Bonus: +15 breakthrough, +10 debugging-war-story, +10 contains code
+- Penalty: -5 marketing content, -5 length < 300 words
+- **score > 80** → eligible for Spotlight section
+
+### Auto-Classification Taxonomy
+
+| Category | Detection |
+|----------|-----------|
+| Breakthrough | New model release, SOTA result, major perf improvement |
+| Debugging | Root cause analysis, production incident, postmortem |
+| Architecture | System design, tradeoff analysis, migration story |
+| Tutorial | Step-by-step guide, how-to, code walkthrough |
+| Release Notes | Version changelog, deprecation notice, feature announcement |
+
+---
+
+## 7. Tech Stack (MVP)
+
+| Layer | Technology |
+|-------|-----------|
+| Backend | Python (FastAPI) or Node (Express) — lightweight server with RSS polling and LLM integration |
+| Frontend | React / Vue / Svelte SPA — feed UI, detail view, filter, search, bookmarks |
+| Database | SQLite — findings + sources tables with FTS5 for full-text search |
+| LLM | OpenAI API / Anthropic API / Ollama — summarisation (TL;DR, takeaways, full) |
+| Cache | Redis (optional MVP) — feed cache, dedup tracking |
+| Persistence | localStorage — bookmarks, preferences, upvotes (no account needed) |
+
+---
+
+## 8. Implementation Plan (1.5 Days)
+
+### Day 1 — Backend & Ingestion
+- RSS poller + parser for 3-5 engineering blogs
+- SQLite schema (sources, findings tables)
+- HTML-to-text extraction
+- LLM summarisation (TL;DR + takeaways)
+- Scoring + quality gate (score >= 60)
+- REST API endpoints (GET /feed, GET /findings/:id)
+
+### Day 2 — Frontend & Polish
+- Feed view (sorted by date, 20 items, infinite scroll)
+- Detail view (summary, takeaways, original link)
+- Filter by source (URL state)
+- Bookmark toggle (localStorage)
+- Search (debounced, across titles)
+- Auto-refresh banner (polls every 5min)
+- Responsive CSS (mobile + desktop)
+
+### Stretch (if time permits)
+- Dark mode toggle
+- Upvote + most-upvoted sort
+
+---
+
+## 9. Data & Rules
 
 ### Core Entity: Finding
 
@@ -285,4 +365,4 @@ InsightHub is a web app for busy developers who want to stay on top of the best 
 
 ---
 
-*Scoped for a 1.5-day build by 2 developers. MVP uses RSS-only ingestion, localStorage for persistence, and heuristic categorisation. The app works fully for anonymous visitors — no login required. Inspired by roadmap.sh and ILovePdf: deliver value the instant someone lands on the page. Auth, email digests, and personalisation come post-MVP.*
+*Auth, email digests, and personalisation come post-MVP. The core app is fully functional for anonymous visitors — like roadmap.sh or ILovePdf: deliver value the instant someone lands on the page.*
