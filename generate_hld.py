@@ -77,7 +77,7 @@ B1 = "#EDF2FF"; B2 = "#F3F0FF"; B3 = "#E6FCF5"
 B4 = "#FFF9DB"; B5 = "#FFE8E8"; B6 = "#FEF9E7"
 
 MX = 50
-CW = 1100
+CW = 1350
 
 sec_y = -20
 def section(title, brief, color):
@@ -110,7 +110,7 @@ sy = section("SYSTEM CONTEXT", "How InsightHub fits into the developer ecosystem
 cx = MX + 380
 RECT(cx-140, sy, 280, 58, BL, WH, 3)
 TXT(cx-110, sy+10, "INSIGHTHUB", 18, WH, True, 220, "center")
-TXT(cx-110, sy+34, "Summarise · Curate · Deliver    |    No Login Required", 9, "#c0d0ff", False, 220, "center")
+TXT(cx-130, sy+34, "Summarise · Curate · Deliver    |    No Login Required", 9, "#c0d0ff", False, 260, "center")
 
 # Left sources
 for i, (a, b) in enumerate([("ENGINEERING BLOGS", "ByteByteGo, Netflix, Meta"), ("NEWSLETTERS", "Substack, Dev emails"), ("YOUTUBE / VIDEO", "Tech talks, Conferences")]):
@@ -142,16 +142,15 @@ core = [
     ("AUTO-REFRESH", "Banner when new content\nis available. Background\npolls every 5 minutes.", B3, GR),
 ]
 
-gw = 165  # card width
+gw = 190  # card width
 for i, (lbl, desc, bg, color) in enumerate(core):
     dx = MX + i * (gw + 10)
-    RECT(dx, fy, gw, 130, WH, color, 2)
-    # top accent bar
+    RECT(dx, fy, gw, 150, WH, color, 2)
     RECT(dx, fy, gw, 6, color, color, 0)
     TXT(dx+8, fy+14, lbl, 12, color, True, gw-16, "center")
     TXT(dx+8, fy+38, desc, 9, DK, False, gw-16)
-    LINE(dx+10, fy+120, gw-20, 0, color, 1)
-    TXT(dx+8, fy+112, "core · no login", 7, color, True, gw-16, "center")
+    LINE(dx+10, fy+135, gw-20, 0, color, 1)
+    TXT(dx+8, fy+138, "core · no login", 7, color, True, gw-16, "center")
 
 # Arrow implying flow between them stays implicit — these coexist
 
@@ -213,7 +212,7 @@ sty = section("SCORING & CURATION LOGIC", "Fully automatic — no user profile n
 scx = MX + CW//2
 
 RECT(scx-85, sty, 170, 30, B1, BL, 1.5)
-TXT(scx-75, sty+6, "RAW FINDING ARRIVES", 10, BL, True, 150, "center")
+TXT(scx-85, sty+6, "RAW FINDING ARRIVES", 10, BL, True, 170, "center")
 ARW(scx, sty+30, scx, sty+52, GY, 1.2)
 
 DIAM(scx-75, sty+52, 150, 60, B4, OR, 1.5)
@@ -224,35 +223,35 @@ RECT(scx-225, sty+112, 130, 24, B5, RE, 1, {"type": 2})
 TXT(scx-218, sty+115, "DISCARDED", 8, RE, True, 115, "center")
 
 ARW(scx, sty+112, scx, sty+140, GR, 1.2)
-RECT(scx-95, sty+140, 190, 30, B3, GR, 1.5)
-TXT(scx-85, sty+146, "COMPUTE SCORE", 10, GR, True, 170, "center")
-TXT(scx-85, sty+175, "Recency · Authority · Quality · Signal · Feedback", 8, DK, False, 170, "center")
-ARW(scx, sty+170, scx, sty+195, GY, 1.2)
+RECT(scx-180, sty+140, 360, 30, B3, GR, 1.5)
+TXT(scx-170, sty+146, "COMPUTE SCORE", 10, GR, True, 340, "center")
+TXT(scx-180, sty+178, "Recency · Authority · Quality · Signal · Feedback", 8, DK, False, 360, "center")
+ARW(scx, sty+192, scx, sty+210, GY, 1.2)
 
-DIAM(scx-75, sty+195, 150, 60, B4, OR, 1.5)
-TXT(scx-60, sty+215, "SCORE >= 60?", 9, OR, True, 120, "center")
+DIAM(scx-75, sty+210, 150, 60, B4, OR, 1.5)
+TXT(scx-60, sty+230, "SCORE >= 60?", 9, OR, True, 120, "center")
 
-ARW(scx-75, sty+225, scx-145, sty+258, RE, 1)
-RECT(scx-225, sty+255, 130, 24, B5, RE, 1, {"type": 2})
-TXT(scx-218, sty+258, "DISCARDED", 8, RE, True, 115, "center")
+ARW(scx-75, sty+240, scx-145, sty+273, RE, 1)
+RECT(scx-225, sty+270, 130, 24, B5, RE, 1, {"type": 2})
+TXT(scx-218, sty+273, "DISCARDED", 8, RE, True, 115, "center")
 
-ARW(scx, sty+255, scx, sty+285, GR, 1.2)
-RECT(scx-120, sty+285, 240, 30, B3, GR, 1.5)
-TXT(scx-110, sty+291, "CLASSIFY: Breakthrough · Debugging · Arch · Tutorial", 9, GR, True, 220, "center")
-ARW(scx, sty+315, scx, sty+340, GY, 1.2)
+ARW(scx, sty+270, scx, sty+300, GR, 1.2)
+RECT(scx-130, sty+300, 260, 30, B3, GR, 1.5)
+TXT(scx-120, sty+306, "CLASSIFY: Breakthrough · Debugging · Arch · Tutorial", 9, GR, True, 240, "center")
+ARW(scx, sty+330, scx, sty+355, GY, 1.2)
 
-DIAM(scx-75, sty+340, 150, 60, B4, OR, 1.5)
-TXT(scx-60, sty+360, "SPOTLIGHT\nELIGIBLE?", 9, OR, True, 120, "center")
+DIAM(scx-75, sty+355, 150, 60, B4, OR, 1.5)
+TXT(scx-60, sty+375, "SPOTLIGHT\nELIGIBLE?", 9, OR, True, 120, "center")
 
-ARW(scx-40, sty+400, scx-130, sty+435, GR, 1.5)
-RECT(scx-230, sty+435, 175, 26, B3, GR, 1.5, {"type": 2})
-TXT(scx-222, sty+439, "FEED + SPOTLIGHT", 9, GR, True, 160, "center")
-TXT(scx-222, sty+418, "score > 80", 7, DK, False, 160, "center")
+ARW(scx-40, sty+415, scx-130, sty+450, GR, 1.5)
+RECT(scx-230, sty+450, 175, 26, B3, GR, 1.5, {"type": 2})
+TXT(scx-222, sty+454, "FEED + SPOTLIGHT", 9, GR, True, 160, "center")
+TXT(scx-222, sty+433, "score > 80", 7, DK, False, 160, "center")
 
-ARW(scx+40, sty+400, scx+130, sty+435, GY, 1.5)
-RECT(scx+55, sty+435, 175, 26, WH, GY, 1.5, {"type": 2})
-TXT(scx+63, sty+439, "FEED ONLY", 9, DK, True, 160, "center")
-TXT(scx+63, sty+418, "score 60-80", 7, GY, False, 160, "center")
+ARW(scx+40, sty+415, scx+130, sty+450, GY, 1.5)
+RECT(scx+55, sty+450, 175, 26, WH, GY, 1.5, {"type": 2})
+TXT(scx+63, sty+454, "FEED ONLY", 9, DK, True, 160, "center")
+TXT(scx+63, sty+433, "score 60-80", 7, GY, False, 160, "center")
 
 # ────────────────────────────────────────────────
 # 6. NICE-TO-HAVE (Requires Auth)

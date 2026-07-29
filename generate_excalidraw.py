@@ -67,7 +67,7 @@ B1 = "#EDF2FF"; B2 = "#F3F0FF"; B3 = "#E6FCF5"
 B4 = "#FFF9DB"; B5 = "#FFE8E8"; YL = "#FEF3C7"
 
 MX = 50
-CW = 1200
+CW = 1400
 
 sec_y = -20
 def section(title, brief, color):
@@ -326,30 +326,34 @@ TXT(MX+792, nfy+152, "(requires user account)", 8, RE, False)
 # ────────────────────────────────────────────────
 spy = section("SCOPE SUMMARY", "What is built in the MVP vs later phases", BL)
 
+col_w = 420
+col_gap = 30
+
 # MVP scope
-RECT(MX, spy, 570, 120, B3, GR, 2)
-TXT(MX+15, spy+10, "MVP (No Login — Core)", 14, GR, True, 540)
-LINE(MX+10, spy+32, 550, 0, GR, 0.5)
+RECT(MX, spy, col_w, 210, B3, GR, 2)
+TXT(MX+15, spy+10, "MVP (No Login — Core)", 14, GR, True, col_w-30)
+LINE(MX+10, spy+32, col_w-20, 0, GR, 0.5)
 mvp = ["RSS polling from 3-5 engineering blogs", "Text extraction + auto-summarisation", "Feed view (date-sorted, paginated)", "Detail view (TL;DR + takeaways + gloss)", "Filter by source", "Bookmark (localStorage)", "Keyword search", "Auto-refresh banner", "Responsive design"]
-for i, item in enumerate(mvp[:5]):
-    TXT(MX+20, spy+40+i*22, "·  " + item, 9, DK, False)
-TXT(MX+20, spy+150, f"(and {len(mvp)-5} more)", 8, GY, False)
+for i, item in enumerate(mvp):
+    TXT(MX+20, spy+40+i*19, "·  " + item, 9, DK, False)
 
 # Nice-to-have
-RECT(MX+600, spy, 570, 120, YL, OR, 2)
-TXT(MX+615, spy+10, "NICE-TO-HAVE (No Login)", 14, OR, True, 540)
-LINE(MX+610, spy+32, 550, 0, OR, 0.5)
+x2 = MX + col_w + col_gap
+RECT(x2, spy, col_w, 210, YL, OR, 2)
+TXT(x2+15, spy+10, "NICE-TO-HAVE (No Login)", 14, OR, True, col_w-30)
+LINE(x2+10, spy+32, col_w-20, 0, OR, 0.5)
 nth = ["Auto-categorisation (heuristic)", "Upvote + most-upvoted sort", "Breakthroughs spotlight section", "Dark mode", "Shareable permalinks"]
 for i, item in enumerate(nth):
-    TXT(MX+620, spy+40+i*22, "·  " + item, 9, DK, False)
+    TXT(x2+20, spy+40+i*19, "·  " + item, 9, DK, False)
 
 # Post-MVP
-RECT(MX+1200, spy, 570, 120, B5, RE, 2)
-TXT(MX+1215, spy+10, "POST-MVP (Requires Auth)", 14, RE, True, 540)
-LINE(MX+1210, spy+32, 550, 0, RE, 0.5)
+x3 = x2 + col_w + col_gap
+RECT(x3, spy, col_w, 210, B5, RE, 2)
+TXT(x3+15, spy+10, "POST-MVP (Requires Auth)", 14, RE, True, col_w-30)
+LINE(x3+10, spy+32, col_w-20, 0, RE, 0.5)
 pmvp = ["User accounts (email/OAuth)", "Synced bookmarks across devices", "Personalised feed (For You tab)", "Email digest subscription", "Slack / Discord webhooks", "Watchlist alerts"]
 for i, item in enumerate(pmvp):
-    TXT(MX+1220, spy+40+i*22, "·  " + item, 9, DK, False)
+    TXT(x3+20, spy+40+i*19, "·  " + item, 9, DK, False)
 
 # ────────────────────────────────────────────────
 # COLOR KEY
