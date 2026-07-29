@@ -1,44 +1,22 @@
-# InsightHub — Technical TODO
+# InsightHub — Technical TODO (1.5 Days)
 
-## Phase 1: Ingestion (Day 1)
-- [ ] RSS feed polling (cron, 15min)
-- [ ] Parse RSS/Atom → extract title, URL, date, content
+## Day 1 — Backend & Ingestion
+- [ ] RSS poller + parser for 3-5 blogs
+- [ ] SQLite schema (sources, findings tables)
 - [ ] HTML-to-text extraction
-- [ ] Dedup by URL + content hash
-- [ ] Store findings in SQLite
+- [ ] LLM summarisation (TL;DR + takeaways)
+- [ ] Scoring + quality gate (score >= 60)
+- [ ] REST API endpoints (GET /feed, GET /findings/:id)
 
-## Phase 2: Summarisation (Day 1-2)
-- [ ] LLM API integration for TL;DR (1 sentence)
-- [ ] Key takeaways (3-5 bullets)
-- [ ] Full summary (2-3 paragraphs)
-- [ ] Jargon detection + auto-glossary
-
-## Phase 3: Scoring & Curation (Day 2)
-- [ ] Scoring formula (recency, authority, quality, signal)
-- [ ] Quality gate: discard score < 60
-- [ ] Auto-categorisation (keyword heuristics)
-- [ ] Spotlight detection (score > 80)
-
-## Phase 4: Web App (Day 2-3)
-- [ ] Feed view with infinite scroll
-- [ ] Detail view (TL;DR, takeaways, glossary)
+## Day 2 — Frontend & Polish
+- [ ] Feed view (sorted by date, 20 items)
+- [ ] Detail view (summary, takeaways, original link)
 - [ ] Filter by source (URL state)
-- [ ] Search with debounce
 - [ ] Bookmark toggle (localStorage)
-- [ ] Auto-refresh banner (5min poll)
-- [ ] Responsive layout
+- [ ] Search (debounced, across titles)
+- [ ] Auto-refresh banner (polls every 5min)
+- [ ] Responsive CSS (mobile + desktop)
 
-## Phase 5: Polish (Day 3)
-- [ ] Dark mode
+## Stretch (if time permits)
+- [ ] Dark mode toggle
 - [ ] Upvote + most-upvoted sort
-- [ ] Breakthrough spotlight section
-- [ ] Shareable permalinks
-- [ ] Loading/error/empty states
-
-## Phase 6: Post-MVP
-- [ ] User accounts (email/OAuth)
-- [ ] Synced bookmarks across devices
-- [ ] Personalised feed (For You tab)
-- [ ] Email digest (daily/weekly)
-- [ ] Slack/Discord webhooks
-- [ ] Watchlist alerts
